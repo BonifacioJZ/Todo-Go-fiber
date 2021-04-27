@@ -12,8 +12,12 @@ func Handlers() {
 		return c.SendString("Hello world")
 	})
 
-	app.Get("/api/tasks", routes.Allusers)
-	app.Post("/api/newtask", routes.NewTask)
+	app.Get("/api/task", routes.Allusers)
+	app.Get("/api/task/:id", routes.Task)
+	app.Post("/api/task", routes.NewTask)
+	app.Put("/api/task/:id", routes.UpdateTasks)
+	app.Put("/api/done/:id", routes.Done)
+	app.Delete("/api/task/:id", routes.DeleteTask)
 
 	app.Listen(":8000")
 
